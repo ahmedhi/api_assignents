@@ -2,13 +2,15 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let assignment = require('./routes/assignments');
+let user = require('./routes/users');
 
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 //mongoose.set('debug', true);
 
 // remplacer toute cette chaine par l'URI de connexion à votre propre base dans le cloud s
-const uri = 'mongodb+srv://mb:toto@cluster0.xtr0u.mongodb.net/assignments?retryWrites=true&w=majority';
+//const uri = 'mongodb+srv://mb:toto@cluster0.xtr0u.mongodb.net/assignments?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://angular-assignement:angular@cluster0.ayhsf.mongodb.net/assignments?retryWrites=true&w=majority';
 //const uri='mongodb+srv://ya:toto@cluster0.usbh6.mongodb.net/assignments?retryWrites=true&w=majority';
 
 const options = {
@@ -53,6 +55,14 @@ app.route(prefix + '/assignments/:id')
   .get(assignment.getAssignment)
   .delete(assignment.deleteAssignment);
 
+app.route(prefix + '/users')
+  .get(user.getUsers)
+  .post(user.postUser)
+  .put(user.updateUser);
+
+app.route(prefix + '/users/:id')
+  .get(user.getUser)
+  .delete(user.deleteUser);
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
