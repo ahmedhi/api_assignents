@@ -1,6 +1,6 @@
 let Assignment = require('../model/assignment');
 
-/*
+
 // Récupérer tous les assignments (GET)
 function getAssignments(req, res){
     Assignment.find((err, assignments) => {
@@ -11,8 +11,7 @@ function getAssignments(req, res){
         res.send(assignments);
     }); 
 }
-*/
-
+/*
 // AVEC PAGINATION
 function getAssignments(req, res) {
     var aggregateQuery = Assignment.aggregate();
@@ -32,6 +31,7 @@ function getAssignments(req, res) {
       }
     );
   }
+  */
 // Récupérer un assignment par son id (GET)
 function getAssignment(req, res){
     let assignmentId = req.params.id;
