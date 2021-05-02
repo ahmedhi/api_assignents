@@ -1,4 +1,4 @@
-let Assignment = require('../model/user');
+let User = require('../model/user');
 
 
 // AVEC PAGINATION
@@ -20,7 +20,7 @@ function getUsers(req, res) {
       }
     );
   }
-// Récupérer un assignment par son id (GET)
+// Récupérer un utilisateur par son id (GET)
 function getUser(req, res){
     let userId = req.params.id;
 
@@ -30,7 +30,7 @@ function getUser(req, res){
     })
 }
 
-// Ajout d'un assignment (POST)
+// Ajout d'un utilisateur (POST)
 function postUser(req, res){
     let user = new User();
     user.id = req.body.id;
@@ -49,7 +49,7 @@ function postUser(req, res){
     })
 }
 
-// Update d'un assignment (PUT)
+// Update d'un utilisateur (PUT)
 function updateUser(req, res) {
     console.log("UPDATE recu user : ");
     console.log(req.body);
